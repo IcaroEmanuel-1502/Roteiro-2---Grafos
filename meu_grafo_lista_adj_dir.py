@@ -7,7 +7,7 @@ from bibgrafo.grafo_errors import *
 class MeuGrafo(GrafoListaAdjacenciaDirecionado):
 
 
-    def vertices_isolados(self):
+    def vertices_i(self):
 
         conectados = set()
 
@@ -32,7 +32,7 @@ class MeuGrafo(GrafoListaAdjacenciaDirecionado):
 
         return isolados
 
-    def conjuntos_bipartidos(self):
+    def conjuntos_b(self):
 
         vertices = list(self.vertices)
         espera=[]

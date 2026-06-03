@@ -19,7 +19,7 @@ class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
         '''
         pass
 
-    def alcancabilidade_vertice(self,v_rotulo):
+    def alcancabilidade_(self,v_rotulo):
 
         warshall = self.alcancabilidade()
 
@@ -65,16 +65,6 @@ class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
         '''
         pass
 
-    def eh_conexo_e_simples(self):
-
-
-        if len(self.vertices)==0:
-            return False
-
-        for i in range(len(self.vertices)):
-
-            if len(self.matriz[i][i])>0:
-                return False
 
 
 

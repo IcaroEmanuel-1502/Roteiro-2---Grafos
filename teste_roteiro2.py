@@ -9,7 +9,7 @@ class TestGrafoRoteiro3(unittest.TestCase):
 
 
 
-    def test_alcancabilidade_vertice(self):
+    def test_alcancabilidade_v(self):
 
         g = GrafoMatrizDir()
 
@@ -27,7 +27,7 @@ class TestGrafoRoteiro3(unittest.TestCase):
         self.assertCountEqual(g.alcancabilidade_vertice("D"),[])
 
 
-    def test_altura_arvore(self):
+    def test_altura_a(self):
 
        g = GrafoListaNaoDir()
 
@@ -42,7 +42,7 @@ class TestGrafoRoteiro3(unittest.TestCase):
        self.assertEqual(g.altura_arvore("B"),2)
 
 
-    def test_vertices_isolados(self):
+    def test_vertices_i(self):
 
         g = GrafoListaDir()
 
@@ -59,7 +59,7 @@ class TestGrafoRoteiro3(unittest.TestCase):
         self.assertCountEqual(g.vertices_isolados(),["D"])
 
 
-    def test_conjuntos_bipartidos(self):
+    def test_conjuntos_b(self):
         g = GrafoListaDir()
 
         for letra in ['A','B','C','D']:

@@ -89,7 +89,7 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
         return grau_do_vertice
 
-    def altura_arvore(self, raiz_rotulo):
+    def altura_a(self, raiz_rotulo):
 
         lista_arestas = self.arestas.values() if type(self.arestas) == dict else self.arestas
 
