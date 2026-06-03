@@ -9,8 +9,6 @@ class TestGrafoRoteiro3(unittest.TestCase):
 
 
 
-
-
     def test_alcancabilidade_vertice(self):
 
         g = GrafoMatrizDir()
@@ -44,12 +42,6 @@ class TestGrafoRoteiro3(unittest.TestCase):
        self.assertEqual(g.altura_arvore("B"),2)
 
 
-
-
-
-
-
-
     def test_vertices_isolados(self):
 
         g = GrafoListaDir()
@@ -65,7 +57,6 @@ class TestGrafoRoteiro3(unittest.TestCase):
 
         g.adiciona_aresta("a2","B","C",1)
         self.assertCountEqual(g.vertices_isolados(),["D"])
-
 
 
     def test_conjuntos_bipartidos(self):
@@ -88,6 +79,15 @@ class TestGrafoRoteiro3(unittest.TestCase):
 
         self.assertTrue({'A','C'} in [grupo_1,grupo_2])
         self.assertTrue({'B', 'D'} in [grupo_1, grupo_2])
+
+
+
+
+
+
+
+
+
 
 
 

@@ -89,7 +89,33 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
         return grau_do_vertice
 
+    def altura_arvore(self, raiz_rotulo):
 
+        lista_arestas = self.arestas.values() if type(self.arestas) == dict else self.arestas
+
+        def dfs(vertice_atual, pai):
+
+            maior_altura = -1
+
+            for aresta in lista_arestas:
+                vizinho = None
+
+                if aresta.v1.rotulo == vertice_atual:
+                    vizinho = aresta.v2.rotulo
+                elif aresta.v2.rotulo == vertice_atual:
+                    vizinho = aresta.v1.rotulo
+
+                if vizinho is not None:
+
+                    if vizinho != pai:
+                        altura = dfs(vizinho, vertice_atual)
+
+                        if altura > maior_altura:
+                            maior_altura = altura
+
+            return maior_altura + 1
+
+        return dfs(raiz_rotulo, None)
 
     def ha_paralelas(self):
         '''
@@ -155,37 +181,6 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
         return True
 
-
-
-    def altura_arvore(self,raiz_rotulo):
-
-        lista_arestas = self.arestas.values() if type(self.arestas) == dict else self.arestas
-
-
-        def dfs(vertice_atual,pai):
-
-            maior_altura = -1
-
-            for aresta in lista_arestas:
-                vizinho = None
-
-                if aresta.v1.rotulo == vertice_atual:
-                    vizinho = aresta.v2.rotulo
-                elif aresta.v2.rotulo == vertice_atual:
-                    vizinho = aresta.v1.rotulo
-
-
-                if vizinho is not None:
-
-                    if vizinho != pai:
-                        altura = dfs(vizinho,vertice_atual)
-
-                        if altura >maior_altura:
-                            maior_altura = altura
-
-            return maior_altura +1
-
-        return dfs(raiz_rotulo,None)
 
 
 

@@ -19,6 +19,27 @@ class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
         '''
         pass
 
+    def alcancabilidade_vertice(self,v_rotulo):
+
+        warshall = self.alcancabilidade()
+
+        indice= -1
+
+        for i in range(len(self.vertices)):
+            if self.vertices[i].rotulo == v_rotulo:
+                indice = i
+                break
+
+        alcancaveis = []
+
+        if indice != -1:
+            for j in range(len(self.vertices)):
+                if warshall[indice][j]==1:
+                    alcancaveis.append(self.vertices[j].rotulo)
+
+        return alcancaveis
+
+
     def grau_entrada(self, V=''):
         '''
         Provê o grau do vértice passado como parâmetro
@@ -88,22 +109,3 @@ class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
 
         return e
 
-    def alcancabilidade_vertice(self,v_rotulo):
-
-        warshall = self.alcancabilidade()
-
-        indice= -1
-
-        for i in range(len(self.vertices)):
-            if self.vertices[i].rotulo == v_rotulo:
-                indice = i
-                break
-
-        alcancaveis = []
-
-        if indice != -1:
-            for j in range(len(self.vertices)):
-                if warshall[indice][j]==1:
-                    alcancaveis.append(self.vertices[j].rotulo)
-
-        return alcancaveis
